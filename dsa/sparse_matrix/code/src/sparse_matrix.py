@@ -113,14 +113,9 @@ def main():
     
     choice = input("Enter your choice (1/2/3): ")
 
-    file1 = input("Enter name to the first matrix file: ").strip()
-    file1_path = "C:/Users/User/Documents/sparse_matrix/dsa/sparse_matrix/sample_inputs/matrixfile1.txt"
-    file2 = input("Enter name to the second matrix file: ").strip()
-    file2_path = "C:/Users/User/Documents/sparse_matrix/dsa/sparse_matrix/sample_inputs/matrixfile2.txt"
-
-    matrix1 = SparseMatrix(file1_path)
-    matrix2 = SparseMatrix(file2_path)
- 
+    file1 = input("Enter the path to the first matrix file: ")
+    file2 = input("Enter the path to the second matrix file: ")
+    
     try:
         m1 = SparseMatrix(file1)
         m2 = SparseMatrix(file2)
