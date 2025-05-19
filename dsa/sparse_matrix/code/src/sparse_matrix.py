@@ -124,8 +124,8 @@ def main():
     
     try:
         
-        file1_path = matrix_directory + "\\" + file1
-        file2_path = matrix_directory + "\\" + file2
+        file1_path = matrix_directory + "/" + file1
+        file2_path = matrix_directory + "/" + file2
         
         m1 = SparseMatrix(file1_path)
         m2 = SparseMatrix(file2_path)
