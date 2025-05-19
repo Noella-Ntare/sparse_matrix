@@ -124,8 +124,8 @@ def main():
     
     try:
         
-        file1_path = matrix_directory + file1
-        file2_path = matrix_directory  + file2
+        file1_path = matrix_directory 
+        file2_path = matrix_directory 
         
         # DEBUG: Check path before continuing
         print(f"📂 Looking for file1 at: {file1_path}")
