@@ -108,6 +108,8 @@ class SparseMatrix:
             print(f"({row}, {col}, {val})")
 
 
+import os
+
 def main():
     print("Welcome to Sparse Matrix Operations!")
     print("Choose the operation:")
@@ -115,23 +117,24 @@ def main():
     print("2. Subtraction")
     print("3. Multiplication")
     
-    matrix_directory = r"/sparse_matrix/dsa/sparse_matrix/sample_inputs/"
-    
-    choice = input("Enter your choice (1/2/3): ")
+    # NOTE: change this to match YOUR actual directory
+    matrix_directory = r"C:/Users/User/Documents/sparse_matrix/dsa/sparse_matrix/sample_inputs"
 
+    choice = input("Enter your choice (1/2/3): ")
     file1 = input("Enter first matrix filename: ").strip()
     file2 = input("Enter second matrix filename: ").strip()
     
+    file1_path = os.path.join(matrix_directory, file1)
+    file2_path = os.path.join(matrix_directory, file2)
+
+    # Debug print
+    print("File 1 path:", file1_path)
+    print("File 2 path:", file2_path)
+
     try:
-        
-        file1_path = matrix_directory 
-        file2_path = matrix_directory 
-        
-        # DEBUG: Check path before continuing
-        print(f"📂 Looking for file1 at: {file1_path}")
-        print(f"📂 Looking for file2 at: {file2_path}")
-    
-        
+        if not os.path.exists(file1_path) or not os.path.exists(file2_path):
+            raise FileNotFoundError("One or both files not found.")
+
         m1 = SparseMatrix(file1_path)
         m2 = SparseMatrix(file2_path)
 
@@ -155,8 +158,8 @@ def main():
     
     except ValueError as ve:
         print("Error:", ve)
-    except FileNotFoundError:
-        print("Error: One or both files not found.")
+    except FileNotFoundError as fnfe:
+        print("Error:", fnfe)
 
 if __name__ == "__main__":
     main()
