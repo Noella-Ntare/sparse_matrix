@@ -115,7 +115,7 @@ def main():
     print("2. Subtraction")
     print("3. Multiplication")
     
-    matrix_directory = "C:/Users/User/Documents/sparse_matrix/dsa/sparse_matrix/sample_inputs/"
+    matrix_directory = r"C:/Users/User/Documents/sparse_matrix/dsa/sparse_matrix/sample_inputs/"
     
     choice = input("Enter your choice (1/2/3): ")
 
@@ -124,8 +124,8 @@ def main():
     
     try:
         
-        file1_path = matrix_directory + "/" + file1
-        file2_path = matrix_directory + "/" + file2
+        file1_path = matrix_directory + file1
+        file2_path = matrix_directory  + file2
         
         m1 = SparseMatrix(file1_path)
         m2 = SparseMatrix(file2_path)
