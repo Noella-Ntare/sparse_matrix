@@ -119,8 +119,8 @@ def main():
     
     choice = input("Enter your choice (1/2/3): ")
 
-    file1 = input("Enter first matrix filename: ")
-    file2 = input("Enter second matrix filename: ")
+    file1 = input("Enter first matrix filename: ").strip()
+    file2 = input("Enter second matrix filename: ").strip()
     
     try:
         
