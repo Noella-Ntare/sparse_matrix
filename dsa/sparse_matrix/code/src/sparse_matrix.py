@@ -115,7 +115,7 @@ def main():
     print("2. Subtraction")
     print("3. Multiplication")
     
-    matrix_directory = "C:\Users\User\Documents\sparse_matrix\dsa\sparse_matrix\sample_inputs"
+    matrix_directory = "C:/Users/User/Documents/sparse_matrix/dsa/sparse_matrix/sample_inputs/"
     
     choice = input("Enter your choice (1/2/3): ")
 
