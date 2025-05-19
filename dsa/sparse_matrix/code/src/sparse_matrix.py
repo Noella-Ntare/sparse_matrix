@@ -127,6 +127,11 @@ def main():
         file1_path = matrix_directory + file1
         file2_path = matrix_directory  + file2
         
+        # DEBUG: Check path before continuing
+        print(f"📂 Looking for file1 at: {file1_path}")
+        print(f"📂 Looking for file2 at: {file2_path}")
+    
+        
         m1 = SparseMatrix(file1_path)
         m2 = SparseMatrix(file2_path)
 
