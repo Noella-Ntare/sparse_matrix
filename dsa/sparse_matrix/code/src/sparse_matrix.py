@@ -47,11 +47,15 @@ class SparseMatrix:
         return 0
 
     def set_element(self, row, col, value):
-        for entry in self.data:
+        for i, entry in self.data:
             if entry[0] == row and entry[1] == col:
-                entry[2] = value
+                if value == 0:
+                    self.data.pop(i)
+                else:
+                    entry[2] = value
                 return
-        self.data.append([row, col, value])
+        if value != 0:
+         self.data.append([row, col, value])
 
     def add(self, other):
         if self.num_rows != other.num_rows or self.num_cols != other.num_cols:
@@ -111,14 +115,20 @@ def main():
     print("2. Subtraction")
     print("3. Multiplication")
     
+    matrix_directory = "C:\Users\User\Documents\sparse_matrix\dsa\sparse_matrix\sample_inputs"
+    
     choice = input("Enter your choice (1/2/3): ")
 
-    file1 = input("Enter the path to the first matrix file: ")
-    file2 = input("Enter the path to the second matrix file: ")
+    file1 = input("Enter first matrix filename: ")
+    file2 = input("Enter second matrix filename: ")
     
     try:
-        m1 = SparseMatrix(file1)
-        m2 = SparseMatrix(file2)
+        
+        file1_path = matrix_directory + "\\" + file1
+        file2_path = matrix_directory + "\\" + file2
+        
+        m1 = SparseMatrix(file1_path)
+        m2 = SparseMatrix(file2_path)
 
         if choice == '1':
             result = m1.add(m2)
@@ -140,7 +150,8 @@ def main():
     
     except ValueError as ve:
         print("Error:", ve)
-
+    except FileNotFoundError:
+        print("Error: One or both files not found.")
 
 if __name__ == "__main__":
     main()
