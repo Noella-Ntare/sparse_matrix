@@ -114,21 +114,43 @@ def main():
     print("1. Addition")
     print("2. Subtraction")
     print("3. Multiplication")
-
-    choice = input("Enter your choice (1/2/3): ")
     
     # Define the base directory where matrix files are stored
     matrix_directory = r"C:/Users/User/Documents/sparse_matrix/dsa/sparse_matrix/sample_inputs"
     
-    # Ask for just the filenames
-    file1_name = input("Enter first matrix filename: ").strip()
-    file2_name = input("Enter second matrix filename: ").strip()
+    # Predefined matrix files for each operation
+    matrix_sets = {
+        '1': {  # Addition
+            'first': "matrixfile1.txt",
+            'second': "matrixfile2.txt"
+        },
+        '2': {  # Subtraction
+            'first': "matrixfile1.txt",
+            'second': "matrixfile2.txt"
+        },
+        '3': {  # Multiplication
+            'first': "matrixfile1.txt",
+            'second': "matrixfile2.txt"  # Different matrix that's compatible for multiplication
+        }
+    }
     
-    # Combine the paths
-    file1 = matrix_directory + "/" + file1_name
-    file2 = matrix_directory + "/" + file2_name
+    choice = input("Enter your choice (1/2/3): ")
     
     try:
+        if choice not in ['1', '2', '3']:
+            print("Invalid choice. Please enter 1, 2, or 3.")
+            return
+            
+        # Get the predefined matrices for this operation
+        file1_name = matrix_sets[choice]['first']
+        file2_name = matrix_sets[choice]['second']
+        
+        # Combine the paths
+        file1 = matrix_directory + "/" + file1_name
+        file2 = matrix_directory + "/" + file2_name
+        
+        print(f"Using matrices: {file1_name} and {file2_name}")
+        
         m1 = SparseMatrix(file1)
         m2 = SparseMatrix(file2)
 
@@ -146,15 +168,12 @@ def main():
             result = m1.multiply(m2)
             print("\nResult of Multiplication:")
             result.print_matrix()
-
-        else:
-            print("Invalid choice. Please enter 1, 2, or 3.")
     
     except ValueError as ve:
         print("Error:", ve)
     except FileNotFoundError as fnfe:
-        print(f"Error: File not found. Please ensure the files exist in {matrix_directory}")
-        print(f"Attempted to access: {file1} and {file2}")
+        print(f"Error: Matrix files not found in {matrix_directory}")
+        print(f"Looking for: {file1_name} and {file2_name}")
 
 if __name__ == "__main__":
     main()
