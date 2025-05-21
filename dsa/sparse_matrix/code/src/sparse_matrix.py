@@ -115,7 +115,7 @@ def main():
     print("2. Subtraction")
     print("3. Multiplication")
     
-    # Define the base directory where matrix files are stored
+    #  base directory where matrix files are stored
     matrix_directory = r"C:/Users/User/Documents/sparse_matrix/dsa/sparse_matrix/sample_inputs"
     
     # Predefined matrix files for each operation
@@ -130,7 +130,7 @@ def main():
         },
         '3': {  # Multiplication
             'first': "matrixfile1.txt",
-            'second': "matrixfile2.txt"  # Different matrix that's compatible for multiplication
+            'second': "matrixfile2.txt"  
         }
     }
     
@@ -141,11 +141,10 @@ def main():
             print("Invalid choice. Please enter 1, 2, or 3.")
             return
             
-        # Get the predefined matrices for this operation
+        # predefined matrices for this operation
         file1_name = matrix_sets[choice]['first']
         file2_name = matrix_sets[choice]['second']
-        
-        # Combine the paths
+
         file1 = matrix_directory + "/" + file1_name
         file2 = matrix_directory + "/" + file2_name
         
