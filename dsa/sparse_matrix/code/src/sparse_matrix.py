@@ -47,7 +47,6 @@ class SparseMatrix:
         return 0
 
     def set_element(self, row, col, value):
-        # FIXED: Incorrect enumeration syntax
         for i, entry in enumerate(self.data):
             if entry[0] == row and entry[1] == col:
                 if value == 0:
@@ -56,7 +55,6 @@ class SparseMatrix:
                     entry[2] = value
                 return
         if value != 0:
-            # FIXED: Indentation error
             self.data.append([row, col, value])
 
     def add(self, other):
@@ -120,15 +118,15 @@ def main():
     choice = input("Enter your choice (1/2/3): ")
     
     # Define the base directory where matrix files are stored
-    matrix_directory = r"C:\Users\User\Documents\sparse_matrix\dsa\sparse_matrix\sample_inputs"
+    matrix_directory = r"C:/Users/User/Documents/sparse_matrix/dsa/sparse_matrix/sample_inputs"
     
     # Ask for just the filenames
     file1_name = input("Enter first matrix filename: ").strip()
     file2_name = input("Enter second matrix filename: ").strip()
     
     # Combine the paths
-    file1 = matrix_directory + "\\" + file1_name
-    file2 = matrix_directory + "\\" + file2_name
+    file1 = matrix_directory + "/" + file1_name
+    file2 = matrix_directory + "/" + file2_name
     
     try:
         m1 = SparseMatrix(file1)
